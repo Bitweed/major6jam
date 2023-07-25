@@ -1,0 +1,14 @@
+[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://bgw7hte8rwvw"]
+
+[ext_resource type="Shader" path="res://shaders/caustics.gdshader" id="1_41nns"]
+
+[sub_resource type="Gradient" id="Gradient_3a4lr"]
+offsets = PackedFloat32Array(0, 0.992509)
+colors = PackedColorArray(0, 0, 0, 0, 1, 0.941176, 0.890196, 0.192157)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_phsjo"]
+gradient = SubResource("Gradient_3a4lr")
+
+[resource]
+shader = ExtResource("1_41nns")
+shader_parameter/color_ramp = SubResource("GradientTexture1D_phsjo")
