@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://by4e4xbqqou8n"]
+[gd_scene load_steps=21 format=3 uid="uid://by4e4xbqqou8n"]
 
 [ext_resource type="Script" path="res://_scripts/main.gd" id="1_a4ofq"]
 [ext_resource type="Texture2D" uid="uid://ba480vxpf8tje" path="res://textures/sand.png" id="1_aya6v"]
@@ -7,7 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://devyvdbaa3bwu" path="res://textures/coral_1.png" id="4_apym3"]
 [ext_resource type="Texture2D" uid="uid://yxfgehyneere" path="res://textures/alge.png" id="6_57dx2"]
 [ext_resource type="PackedScene" uid="uid://fi1i5geuauy1" path="res://prefabs/buildings/coral.tscn" id="6_erxr2"]
-[ext_resource type="PackedScene" uid="uid://dvi6bw1qagk5p" path="res://shop.tscn" id="9_gvday"]
+[ext_resource type="PackedScene" uid="uid://dvi6bw1qagk5p" path="res://prefabs/shop.tscn" id="9_gvday"]
+[ext_resource type="Texture2D" uid="uid://cbrikjjm6ssw6" path="res://textures/fish/clownfish.png" id="9_pe7it"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nddb5"]
 texture = ExtResource("1_aya6v")
@@ -42,6 +43,42 @@ tile_size = Vector2i(45, 24)
 sources/1 = SubResource("TileSetAtlasSource_pse0s")
 sources/2 = SubResource("TileSetScenesCollectionSource_xi6xe")
 sources/5 = SubResource("TileSetAtlasSource_w8l8w")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2jnks"]
+atlas = ExtResource("9_pe7it")
+region = Rect2(0, 0, 17, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6a0cp"]
+atlas = ExtResource("9_pe7it")
+region = Rect2(17, 0, 17, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6667t"]
+atlas = ExtResource("9_pe7it")
+region = Rect2(51, 0, 17, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cf8at"]
+atlas = ExtResource("9_pe7it")
+region = Rect2(34, 0, 17, 12)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4b1ks"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2jnks")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6a0cp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6667t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cf8at")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_a4ofq")
@@ -88,6 +125,7 @@ energy = 11.49
 blend_mode = 1
 
 [node name="Shop" parent="." instance=ExtResource("9_gvday")]
+visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -99,3 +137,18 @@ offset_right = 310.0
 offset_bottom = 181.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(68, 82)
+sprite_frames = SubResource("SpriteFrames_4b1ks")
+autoplay = "default"
+frame_progress = 0.832884
+
+[node name="Label" type="Label" parent="AnimatedSprite2D"]
+offset_left = -16.0
+offset_top = -21.0
+offset_right = 65.0
+offset_bottom = 5.0
+scale = Vector2(0.69, 0.69)
+text = "bebra"

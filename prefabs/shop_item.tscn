@@ -1,20 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://dvi6bw1qagk5p"]
+[gd_scene load_steps=4 format=3 uid="uid://by8ummqdq3dpn"]
 
-[ext_resource type="Script" path="res://_scripts/shop.gd" id="1_t6vdd"]
-[ext_resource type="Script" path="res://_scripts/shop_item.gd" id="2_87rqf"]
-[ext_resource type="Texture2D" uid="uid://jxn7ntgtyvtl" path="res://icon.svg" id="2_r53ns"]
+[ext_resource type="Script" path="res://_scripts/shop_item.gd" id="1_b70br"]
+[ext_resource type="Texture2D" uid="uid://devyvdbaa3bwu" path="res://textures/coral_1.png" id="2_cs77g"]
+[ext_resource type="Texture2D" uid="uid://jxn7ntgtyvtl" path="res://icon.svg" id="3_fcwnn"]
 
-[node name="Shop" type="Control"]
+[node name="Item" type="Control"]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("1_t6vdd")
-
-[node name="Item" type="Control" parent="."]
-layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -26,11 +17,11 @@ offset_right = 20.0
 offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("2_87rqf")
-tile_num = 5
+script = ExtResource("1_b70br")
+preview_block_texture = ExtResource("2_cs77g")
 cost = 100
 
-[node name="Button" type="Button" parent="Item"]
+[node name="Button" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -46,7 +37,7 @@ grow_vertical = 2
 text = "Buy"
 icon_alignment = 1
 
-[node name="NameItem" type="Label" parent="Item"]
+[node name="NameItem" type="Label" parent="."]
 top_level = true
 layout_mode = 1
 anchors_preset = 8
@@ -62,12 +53,12 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "Pencil"
 
-[node name="Sprite2D" type="Sprite2D" parent="Item"]
+[node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(15, -37)
 scale = Vector2(0.460938, 0.460938)
-texture = ExtResource("2_r53ns")
+texture = ExtResource("3_fcwnn")
 
-[node name="Cost" type="Label" parent="Item"]
+[node name="Cost" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -83,13 +74,4 @@ grow_vertical = 2
 text = "0"
 horizontal_alignment = 1
 
-[node name="Coins" type="Label" parent="."]
-layout_mode = 0
-offset_left = -18.0
-offset_top = -215.0
-offset_right = 22.0
-offset_bottom = -189.0
-text = "0"
-horizontal_alignment = 1
-
-[connection signal="pressed" from="Item/Button" to="Item" method="_on_button_pressed"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

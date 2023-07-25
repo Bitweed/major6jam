@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://dvi6bw1qagk5p"]
+
+[ext_resource type="Script" path="res://_scripts/shop.gd" id="1_t6vdd"]
+[ext_resource type="PackedScene" uid="uid://by8ummqdq3dpn" path="res://prefabs/shop_item.tscn" id="2_ldjfy"]
+[ext_resource type="Texture2D" uid="uid://wliry6fica54" path="res://textures/alge_preview.png" id="3_4626b"]
+[ext_resource type="PackedScene" uid="uid://c7haom8wggk6p" path="res://prefabs/buildings/alge.tscn" id="4_6l7n2"]
+
+[node name="Shop" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_t6vdd")
+
+[node name="Item - Coral" parent="." instance=ExtResource("2_ldjfy")]
+layout_mode = 1
+
+[node name="Coins" type="Label" parent="."]
+layout_mode = 0
+offset_left = -18.0
+offset_top = -215.0
+offset_right = 22.0
+offset_bottom = -189.0
+text = "0"
+horizontal_alignment = 1
+
+[node name="Item - Alge" parent="." instance=ExtResource("2_ldjfy")]
+layout_mode = 1
+offset_left = -141.0
+offset_right = -101.0
+preview_block_texture = ExtResource("3_4626b")
+block_to_place = ExtResource("4_6l7n2")
+cost = 32

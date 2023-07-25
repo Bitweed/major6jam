@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://b8iiitnqvw33m"]
+
+[ext_resource type="Script" path="res://_scripts/preview_block_placing.gd" id="1_u7mdb"]
+[ext_resource type="Texture2D" uid="uid://devyvdbaa3bwu" path="res://textures/coral_1.png" id="2_uy0f2"]
+
+[node name="Coral_1" type="Node2D"]
+script = ExtResource("1_u7mdb")
+
+[node name="texture" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_uy0f2")

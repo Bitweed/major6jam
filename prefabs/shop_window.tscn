@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dpqydgd0vb4vr"]
+
+[ext_resource type="PackedScene" uid="uid://dvi6bw1qagk5p" path="res://prefabs/shop.tscn" id="1_dllqh"]
+
+[node name="Window" type="Window"]
+title = "Underwater Shop"
+size = Vector2i(449, 648)
+
+[node name="Shop" parent="." instance=ExtResource("1_dllqh")]

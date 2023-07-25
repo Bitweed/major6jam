@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://c7haom8wggk6p"]
+
+[ext_resource type="Texture2D" uid="uid://yxfgehyneere" path="res://textures/alge.png" id="1_dw6jw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_goibv"]
+atlas = ExtResource("1_dw6jw")
+region = Rect2(0, 0, 45, 58)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l0m4l"]
+atlas = ExtResource("1_dw6jw")
+region = Rect2(45, 0, 45, 58)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qsu6a"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_goibv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l0m4l")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.0
+}]
+
+[node name="alge" type="Node2D"]
+
+[node name="texture" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_qsu6a")
+autoplay = "default"
+frame_progress = 0.76081
