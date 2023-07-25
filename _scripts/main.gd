@@ -8,7 +8,5 @@ func _ready():
 	GameManager.buildings = $Buildings
 
 
-func _on_button_pressed():
-	var p = block.instantiate()
-	$Buildings.add_child(p)
-	p.position = Vector2(0, 0)
+#func _place_cell(x, y, tile_num):
+#	$TileMap.set_cell(0, Vector2i(x, y), tile_num, Vector2i(0, 0))
