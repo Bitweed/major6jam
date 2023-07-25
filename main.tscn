@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://by4e4xbqqou8n"]
+[gd_scene load_steps=16 format=3 uid="uid://by4e4xbqqou8n"]
 
 [ext_resource type="Script" path="res://_scripts/main.gd" id="1_a4ofq"]
 [ext_resource type="Texture2D" uid="uid://ba480vxpf8tje" path="res://textures/sand.png" id="1_aya6v"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://yxfgehyneere" path="res://textures/alge.png" id="6_57dx2"]
 [ext_resource type="PackedScene" uid="uid://b8iiitnqvw33m" path="res://prefabs/buildings/coral_1.tscn" id="6_o600p"]
 [ext_resource type="Texture2D" uid="uid://dybgnrif1jmb0" path="res://textures/blin.png" id="7_n8g8e"]
+[ext_resource type="PackedScene" uid="uid://dvi6bw1qagk5p" path="res://shop.tscn" id="9_gvday"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nddb5"]
 texture = ExtResource("1_aya6v")
@@ -92,5 +93,7 @@ visible = false
 color = Color(0, 0, 0, 1)
 energy = 11.49
 blend_mode = 1
+
+[node name="Shop" parent="." instance=ExtResource("9_gvday")]
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
