@@ -1,12 +1,12 @@
-[gd_scene load_steps=21 format=3 uid="uid://by4e4xbqqou8n"]
+[gd_scene load_steps=19 format=3 uid="uid://by4e4xbqqou8n"]
 
 [ext_resource type="Script" path="res://_scripts/main.gd" id="1_a4ofq"]
 [ext_resource type="Texture2D" uid="uid://ba480vxpf8tje" path="res://textures/sand.png" id="1_aya6v"]
 [ext_resource type="Material" uid="uid://bgw7hte8rwvw" path="res://shaders/caustics_mat.tres" id="2_ptq8v"]
 [ext_resource type="Texture2D" uid="uid://jxn7ntgtyvtl" path="res://icon.svg" id="2_xns22"]
-[ext_resource type="Texture2D" uid="uid://devyvdbaa3bwu" path="res://textures/coral_1.png" id="4_apym3"]
-[ext_resource type="Texture2D" uid="uid://yxfgehyneere" path="res://textures/alge.png" id="6_57dx2"]
+[ext_resource type="Script" path="res://TileMap.gd" id="6_d6pb8"]
 [ext_resource type="PackedScene" uid="uid://fi1i5geuauy1" path="res://prefabs/buildings/coral.tscn" id="6_erxr2"]
+[ext_resource type="PackedScene" uid="uid://c7haom8wggk6p" path="res://prefabs/buildings/alge.tscn" id="6_kkygg"]
 [ext_resource type="PackedScene" uid="uid://dvi6bw1qagk5p" path="res://prefabs/shop.tscn" id="9_gvday"]
 [ext_resource type="Texture2D" uid="uid://cbrikjjm6ssw6" path="res://textures/fish/clownfish.png" id="9_pe7it"]
 
@@ -21,28 +21,14 @@ tile_size = Vector2i(45, 24)
 occlusion_layer_0/light_mask = 1
 sources/0 = SubResource("TileSetAtlasSource_nddb5")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pse0s"]
-texture = ExtResource("6_57dx2")
-texture_region_size = Vector2i(45, 58)
-0:0/animation_frame_0/duration = 1.0
-0:0/animation_frame_1/duration = 1.0
-0:0/0 = 0
-
-[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_xi6xe"]
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_ucx2a"]
 scenes/1/scene = ExtResource("6_erxr2")
+scenes/2/scene = ExtResource("6_kkygg")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_w8l8w"]
-texture = ExtResource("4_apym3")
-texture_region_size = Vector2i(45, 24)
-0:0/size_in_atlas = Vector2i(2, 3)
-0:0/0 = 0
-
-[sub_resource type="TileSet" id="TileSet_ytsjb"]
+[sub_resource type="TileSet" id="TileSet_kir5g"]
 tile_shape = 1
 tile_size = Vector2i(45, 24)
-sources/1 = SubResource("TileSetAtlasSource_pse0s")
-sources/2 = SubResource("TileSetScenesCollectionSource_xi6xe")
-sources/5 = SubResource("TileSetAtlasSource_w8l8w")
+sources/0 = SubResource("TileSetScenesCollectionSource_ucx2a")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2jnks"]
 atlas = ExtResource("9_pe7it")
@@ -109,11 +95,10 @@ metadata/_edit_lock_ = true
 
 [node name="TileMap" type="TileMap" parent="."]
 y_sort_enabled = true
-texture_filter = 1
-tile_set = SubResource("TileSet_ytsjb")
+tile_set = SubResource("TileSet_kir5g")
 format = 2
 layer_0/y_sort_enabled = true
-metadata/_edit_lock_ = true
+script = ExtResource("6_d6pb8")
 
 [node name="Buildings" type="Node2D" parent="."]
 y_sort_enabled = true

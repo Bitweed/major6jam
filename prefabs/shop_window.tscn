@@ -4,6 +4,7 @@
 
 [node name="Window" type="Window"]
 title = "Underwater Shop"
+initial_position = 1
 size = Vector2i(449, 648)
 
 [node name="Shop" parent="." instance=ExtResource("1_dllqh")]
