@@ -30,6 +30,22 @@ tile_shape = 1
 tile_size = Vector2i(45, 24)
 sources/0 = SubResource("TileSetScenesCollectionSource_ucx2a")
 
+[sub_resource type="Animation" id="Animation_14w3k"]
+length = 0.001
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(6.1),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
 [sub_resource type="Animation" id="Animation_m1ro7"]
 resource_name = "timecycle"
 length = 24.0
@@ -45,22 +61,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
 "values": [Color(0.356863, 0.4, 0.662745, 1), Color(0.937255, 0.831373, 0.776471, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(0.792157, 0.568627, 0.513726, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_14w3k"]
-length = 0.001
-loop_mode = 2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(6.1),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_41vf1"]

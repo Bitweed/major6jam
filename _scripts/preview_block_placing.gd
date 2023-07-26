@@ -20,4 +20,6 @@ func _unhandled_input(event):
 	if event is InputEventMouseButton && event.pressed && event.button_index == MOUSE_BUTTON_LEFT:
 		# placing tile
 		get_parent().get_parent().get_node("TileMap").set_cell(0, Vector2i(x, y), 0, Vector2i(0, 0), tile_num)
+		
+		GameManager.is_bought = false
 		queue_free()
