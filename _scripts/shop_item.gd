@@ -16,7 +16,9 @@ func _ready():
 func _on_button_pressed():
 	var shop = get_parent()
 	
-	if shop.coins >= cost:
+	if shop.coins >= cost && GameManager.is_bought == false:
+		GameManager.is_bought = true
+		
 		# updating coins
 		shop.update_coins(shop.coins - cost)
 		
