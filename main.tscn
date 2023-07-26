@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://by4e4xbqqou8n"]
+[gd_scene load_steps=23 format=3 uid="uid://by4e4xbqqou8n"]
 
 [ext_resource type="Script" path="res://_scripts/main.gd" id="1_a4ofq"]
 [ext_resource type="Texture2D" uid="uid://ba480vxpf8tje" path="res://textures/sand.png" id="1_aya6v"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://c7haom8wggk6p" path="res://prefabs/buildings/alge.tscn" id="6_kkygg"]
 [ext_resource type="PackedScene" uid="uid://dvi6bw1qagk5p" path="res://prefabs/shop.tscn" id="9_gvday"]
 [ext_resource type="Texture2D" uid="uid://cbrikjjm6ssw6" path="res://textures/fish/clownfish.png" id="9_pe7it"]
+[ext_resource type="PackedScene" uid="uid://b0ch1txs2iid1" path="res://prefabs/buildings/geyser.tscn" id="10_5ouaf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nddb5"]
 texture = ExtResource("1_aya6v")
@@ -24,6 +25,7 @@ sources/0 = SubResource("TileSetAtlasSource_nddb5")
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_ucx2a"]
 scenes/1/scene = ExtResource("6_erxr2")
 scenes/2/scene = ExtResource("6_kkygg")
+scenes/3/scene = ExtResource("10_5ouaf")
 
 [sub_resource type="TileSet" id="TileSet_kir5g"]
 tile_shape = 1
@@ -154,14 +156,13 @@ libraries = {
 [node name="Shop" parent="." instance=ExtResource("9_gvday")]
 visible = false
 anchors_preset = 8
-anchor_left = 0.5
 anchor_top = 0.5
-anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = 310.0
 offset_top = 181.0
 offset_right = 310.0
 offset_bottom = 181.0
+grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 

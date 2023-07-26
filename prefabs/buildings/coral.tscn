@@ -1,19 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://fi1i5geuauy1"]
+[gd_scene load_steps=3 format=3 uid="uid://fi1i5geuauy1"]
 
 [ext_resource type="Texture2D" uid="uid://devyvdbaa3bwu" path="res://textures/coral_1.png" id="1_8mxeg"]
 [ext_resource type="Texture2D" uid="uid://byrvvs2th4xnb" path="res://textures/light_mask.png" id="2_eau85"]
-
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_1csxx"]
-light_mode = 1
 
 [node name="coral" type="Node2D"]
 
 [node name="texture" type="Sprite2D" parent="."]
 texture_filter = 1
-material = SubResource("CanvasItemMaterial_1csxx")
 texture = ExtResource("1_8mxeg")
 
-[node name="УДАЛИТЬ (ЭТО ДЛЯ ТЕСТА)" type="PointLight2D" parent="."]
+[node name="light" type="PointLight2D" parent="."]
+visible = false
 position = Vector2(1, 0)
 blend_mode = 2
 texture = ExtResource("2_eau85")

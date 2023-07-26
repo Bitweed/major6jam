@@ -1,42 +1,82 @@
-[gd_scene load_steps=4 format=3 uid="uid://dvi6bw1qagk5p"]
+[gd_scene load_steps=8 format=3 uid="uid://dvi6bw1qagk5p"]
 
 [ext_resource type="Script" path="res://_scripts/shop.gd" id="1_t6vdd"]
+[ext_resource type="Texture2D" uid="uid://bdmuxqlp5jgj0" path="res://textures/UI/goods_bg.png" id="2_3omv2"]
 [ext_resource type="PackedScene" uid="uid://by8ummqdq3dpn" path="res://prefabs/shop_item.tscn" id="2_ldjfy"]
-[ext_resource type="Texture2D" uid="uid://wliry6fica54" path="res://textures/alge_preview.png" id="3_4626b"]
+[ext_resource type="Texture2D" uid="uid://wliry6fica54" path="res://textures/preview/alge_preview.png" id="4_3a1di"]
+[ext_resource type="Texture2D" uid="uid://bd6cn1umima1l" path="res://textures/preview/geyser_preview.png" id="5_ekmvg"]
+[ext_resource type="FontFile" uid="uid://dji467kgorm4p" path="res://REM-VariableFont_wght.ttf" id="5_nhqhi"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_dxved"]
+font = ExtResource("5_nhqhi")
+font_size = 45
+font_color = Color(0, 0, 0, 1)
 
 [node name="Shop" type="Control"]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -576.0
+offset_right = -576.0
 grow_horizontal = 2
-grow_vertical = 2
 script = ExtResource("1_t6vdd")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -32
+scale = Vector2(10, 7.303)
+texture = ExtResource("2_3omv2")
+metadata/_edit_lock_ = true
 
 [node name="Item - Coral" parent="." instance=ExtResource("2_ldjfy")]
 layout_mode = 1
+offset_left = 96.0
+offset_top = 168.0
+offset_right = 96.0
+offset_bottom = 168.0
 tile_num = 1
-
-[node name="Coins" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.452
-anchor_top = 0.281
-anchor_right = 0.452
-anchor_bottom = 0.281
-offset_left = -19.704
-offset_top = -13.088
-offset_right = 20.296
-offset_bottom = 12.912
-grow_horizontal = 2
-grow_vertical = 2
-text = "0"
-horizontal_alignment = 1
+cost = 300
 
 [node name="Item - Alge" parent="." instance=ExtResource("2_ldjfy")]
 layout_mode = 1
-offset_left = -141.0
-offset_right = -101.0
-preview_block_texture = ExtResource("3_4626b")
+offset_left = -120.0
+offset_top = 168.0
+offset_right = -6.0
+offset_bottom = 168.0
+preview_block_texture = ExtResource("4_3a1di")
 tile_num = 2
-cost = 32
+cost = 150
+
+[node name="Item - Geyser" parent="." instance=ExtResource("2_ldjfy")]
+layout_mode = 1
+offset_left = -120.0
+offset_top = 416.0
+offset_right = -6.0
+offset_bottom = 416.0
+preview_block_texture = ExtResource("5_ekmvg")
+tile_num = 3
+cost = 1000
+
+[node name="Item - Geyser2" parent="." instance=ExtResource("2_ldjfy")]
+layout_mode = 1
+offset_left = 80.0
+offset_top = 416.0
+offset_right = 194.0
+offset_bottom = 416.0
+preview_block_texture = ExtResource("5_ekmvg")
+tile_num = 3
+cost = 1000
+
+[node name="Coins" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -176.0
+offset_top = 8.0
+offset_right = 184.0
+offset_bottom = 69.0
+grow_horizontal = 2
+text = "12345 ₵"
+label_settings = SubResource("LabelSettings_dxved")
+vertical_alignment = 1

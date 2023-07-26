@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c50wgiymp4j5k"
-path="res://.godot/imported/sand1.png-0976f877663bec24e72cad668c0cbe05.ctex"
+uid="uid://f2atwp4swnb6"
+path="res://.godot/imported/geyser.png-804f59faa40c2219cbbaa7963c8085a5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/p/sand1.png"
-dest_files=["res://.godot/imported/sand1.png-0976f877663bec24e72cad668c0cbe05.ctex"]
+source_file="res://textures/geyser.png"
+dest_files=["res://.godot/imported/geyser.png-804f59faa40c2219cbbaa7963c8085a5.ctex"]
 
 [params]
 

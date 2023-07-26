@@ -1,77 +1,79 @@
-[gd_scene load_steps=4 format=3 uid="uid://by8ummqdq3dpn"]
+[gd_scene load_steps=9 format=3 uid="uid://by8ummqdq3dpn"]
 
 [ext_resource type="Script" path="res://_scripts/shop_item.gd" id="1_b70br"]
 [ext_resource type="Texture2D" uid="uid://devyvdbaa3bwu" path="res://textures/coral_1.png" id="2_cs77g"]
-[ext_resource type="Texture2D" uid="uid://jxn7ntgtyvtl" path="res://icon.svg" id="3_fcwnn"]
+[ext_resource type="Texture2D" uid="uid://0s7lncf5ms6o" path="res://textures/UI/button.png" id="3_xvadn"]
+[ext_resource type="FontFile" uid="uid://dji467kgorm4p" path="res://REM-VariableFont_wght.ttf" id="4_oscg4"]
+[ext_resource type="Texture2D" uid="uid://by12b0raegd64" path="res://textures/UI/button_pressed.png" id="4_ve8fv"]
+[ext_resource type="Texture2D" uid="uid://bdmuxqlp5jgj0" path="res://textures/UI/goods_bg.png" id="5_8gxf8"]
+[ext_resource type="Texture2D" uid="uid://bxm07446etrg7" path="res://textures/UI/button_hover.png" id="5_kxagw"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_yfi0l"]
+font = ExtResource("4_oscg4")
+font_size = 68
 
 [node name="Item" type="Control"]
 layout_mode = 3
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 0
+scale = Vector2(0.35, 0.35)
+size_flags_horizontal = 4
+size_flags_vertical = 4
 script = ExtResource("1_b70br")
 preview_block_texture = ExtResource("2_cs77g")
 cost = 100
 
-[node name="Button" type="Button" parent="."]
+[node name="Button" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -256.0
+offset_top = 262.0
+offset_right = 256.0
+offset_bottom = 390.0
+grow_horizontal = 2
+grow_vertical = 0
+texture_normal = ExtResource("3_xvadn")
+texture_pressed = ExtResource("4_ve8fv")
+texture_hover = ExtResource("5_kxagw")
+
+[node name="Cost" type="Label" parent="Button"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -34.0
-offset_top = -24.0
-offset_right = 66.0
-offset_bottom = 7.0
+offset_left = -35.0
+offset_top = -13.0
+offset_right = 35.0
+offset_bottom = 13.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Buy"
-icon_alignment = 1
-
-[node name="NameItem" type="Label" parent="."]
-top_level = true
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 31.0
-offset_top = -54.0
-offset_right = 78.0
-offset_bottom = -28.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "Pencil"
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(15, -37)
-scale = Vector2(0.460938, 0.460938)
-texture = ExtResource("3_fcwnn")
-
-[node name="Cost" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 13.0
-offset_top = -86.0
-offset_right = 83.0
-offset_bottom = -60.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "0"
+text = "12345 ₵"
+label_settings = SubResource("LabelSettings_yfi0l")
 horizontal_alignment = 1
+
+[node name="textures" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GoodsBg" type="Sprite2D" parent="textures"]
+texture_filter = 1
+scale = Vector2(1.1709, 1.1709)
+texture = ExtResource("5_8gxf8")
+
+[node name="IconPreview" type="Sprite2D" parent="textures"]
+texture_filter = 1
+scale = Vector2(5.05556, 5.05556)
+texture = ExtResource("2_cs77g")
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

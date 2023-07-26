@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bn68lqxjg80o6"
-path="res://.godot/imported/sand2.png-282a9671fe762710fdad4083cd8e205c.ctex"
+uid="uid://bqiqugqupn6oy"
+path="res://.godot/imported/button.jpg-4f03cf58e4e89b13b6ecccd8de572a3e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/p/sand2.png"
-dest_files=["res://.godot/imported/sand2.png-282a9671fe762710fdad4083cd8e205c.ctex"]
+source_file="res://textures/button.jpg"
+dest_files=["res://.godot/imported/button.jpg-4f03cf58e4e89b13b6ecccd8de572a3e.ctex"]
 
 [params]
 

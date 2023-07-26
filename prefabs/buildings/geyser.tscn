@@ -1,0 +1,70 @@
+[gd_scene load_steps=10 format=3 uid="uid://b0ch1txs2iid1"]
+
+[ext_resource type="Texture2D" uid="uid://f2atwp4swnb6" path="res://textures/geyser.png" id="1_iwox4"]
+[ext_resource type="Texture2D" uid="uid://bo7kyclxuvpeg" path="res://textures/bubble.png" id="2_u21uj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h2wts"]
+atlas = ExtResource("1_iwox4")
+region = Rect2(0, 0, 90, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bco6m"]
+atlas = ExtResource("1_iwox4")
+region = Rect2(90, 0, 90, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2si87"]
+atlas = ExtResource("1_iwox4")
+region = Rect2(180, 0, 90, 72)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6nqhr"]
+animations = [{
+"frames": [{
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_h2wts")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bco6m")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_2si87")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bco6m")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[sub_resource type="Curve" id="Curve_grdkb"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.204904, 0.578947), 5.79196, 5.79196, 0, 0, Vector2(0.85289, 0.810526), 0.0, 0.0, 0, 0, Vector2(1, 0.0210526), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_uekg5"]
+curve = SubResource("Curve_grdkb")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_m0egv"]
+lifetime_randomness = 1.0
+emission_shape = 1
+emission_sphere_radius = 15.0
+particle_flag_disable_z = true
+gravity = Vector3(0, -20, 0)
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+scale_curve = SubResource("CurveTexture_uekg5")
+color = Color(1, 1, 1, 0.34902)
+
+[node name="Geyser" type="Node2D"]
+
+[node name="texture" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, 7)
+sprite_frames = SubResource("SpriteFrames_6nqhr")
+autoplay = "default"
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -22)
+amount = 20
+process_material = SubResource("ParticleProcessMaterial_m0egv")
+texture = ExtResource("2_u21uj")
+lifetime = 4.0

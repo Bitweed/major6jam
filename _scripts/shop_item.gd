@@ -9,16 +9,14 @@ extends Control
 
 
 func _ready():
-	$Cost.text = str(cost)
-
+	$Button/Cost.text = str(cost) + " ₵"
+	$textures/IconPreview.texture = preview_block_texture
 
 # shoping process
 func _on_button_pressed():
 	var shop = get_parent()
 	
-	if shop.coins >= cost && GameManager.is_bought == false:
-		GameManager.is_bought = true
-		
+	if shop.coins >= cost:
 		# updating coins
 		shop.update_coins(shop.coins - cost)
 		
