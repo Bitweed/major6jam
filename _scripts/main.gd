@@ -3,6 +3,7 @@ extends Node2D
 
 var shop_window = preload("res://prefabs/shop_window.tscn")
 
+
 func _ready():
 	GameManager.tilemap = $TileMap
 	GameManager.buildings = $Buildings
@@ -12,3 +13,6 @@ func _ready():
 	add_child(draw_window)
 	draw_window.visible = true
 
+
+func _process(delta):
+	$Siu.text = str(GameManager.SomeResource)

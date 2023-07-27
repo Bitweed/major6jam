@@ -1,5 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://b0ch1txs2iid1"]
+[gd_scene load_steps=11 format=3 uid="uid://b0ch1txs2iid1"]
 
+[ext_resource type="Script" path="res://prefabs/buildings/geyser.gd" id="1_6mt15"]
 [ext_resource type="Texture2D" uid="uid://f2atwp4swnb6" path="res://textures/geyser.png" id="1_iwox4"]
 [ext_resource type="Texture2D" uid="uid://bo7kyclxuvpeg" path="res://textures/bubble.png" id="2_u21uj"]
 
@@ -54,6 +55,7 @@ scale_curve = SubResource("CurveTexture_uekg5")
 color = Color(1, 1, 1, 0.34902)
 
 [node name="Geyser" type="Node2D"]
+script = ExtResource("1_6mt15")
 
 [node name="texture" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
@@ -68,3 +70,9 @@ amount = 20
 process_material = SubResource("ParticleProcessMaterial_m0egv")
 texture = ExtResource("2_u21uj")
 lifetime = 4.0
+
+[node name="Timer" type="Timer" parent="."]
+process_callback = 0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
