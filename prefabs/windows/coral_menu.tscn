@@ -1,0 +1,54 @@
+[gd_scene load_steps=7 format=3 uid="uid://4lid4laowl56"]
+
+[ext_resource type="Script" path="res://_scripts/windows/coral_menu.gd" id="1_c7rra"]
+[ext_resource type="FontFile" uid="uid://dji467kgorm4p" path="res://REM-VariableFont_wght.ttf" id="1_chgdg"]
+[ext_resource type="Texture2D" uid="uid://c580wdgeoxkq3" path="res://textures/UI/popup.png" id="2_cqmof"]
+[ext_resource type="Texture2D" uid="uid://dvxf5j8fyfols" path="res://textures/UI/close.png" id="4_32hdr"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_mbd6m"]
+light_mode = 1
+
+[sub_resource type="LabelSettings" id="LabelSettings_c3ygj"]
+font = ExtResource("1_chgdg")
+font_size = 50
+font_color = Color(0, 0, 0, 1)
+
+[node name="CoralMenu" type="Node2D"]
+top_level = true
+script = ExtResource("1_c7rra")
+
+[node name="BG" type="Sprite2D" parent="."]
+material = SubResource("CanvasItemMaterial_mbd6m")
+position = Vector2(0, -32)
+scale = Vector2(0.233333, 0.233333)
+texture = ExtResource("2_cqmof")
+
+[node name="FoodCount" type="Label" parent="."]
+offset_left = -50.0
+offset_top = -43.0
+offset_right = -15.0
+offset_bottom = 23.0
+scale = Vector2(0.5, 0.5)
+text = "0"
+label_settings = SubResource("LabelSettings_c3ygj")
+
+[node name="FishCount" type="Label" parent="."]
+offset_left = -50.0
+offset_top = -75.0
+offset_right = -15.0
+offset_bottom = -9.0
+scale = Vector2(0.5, 0.5)
+text = "0"
+label_settings = SubResource("LabelSettings_c3ygj")
+
+[node name="CloseButton" type="TextureButton" parent="."]
+material = SubResource("CanvasItemMaterial_mbd6m")
+offset_left = 23.0
+offset_top = -82.0
+offset_right = 514.0
+offset_bottom = 391.0
+scale = Vector2(0.055, 0.055)
+texture_normal = ExtResource("4_32hdr")
+ignore_texture_size = true
+
+[connection signal="pressed" from="CloseButton" to="." method="_on_texture_button_pressed"]

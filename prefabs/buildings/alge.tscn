@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://c7haom8wggk6p"]
+[gd_scene load_steps=7 format=3 uid="uid://c7haom8wggk6p"]
 
 [ext_resource type="Texture2D" uid="uid://yxfgehyneere" path="res://textures/alge.png" id="1_dw6jw"]
+[ext_resource type="Script" path="res://_scripts/buildings/alge.gd" id="1_iqjj5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_goibv"]
 atlas = ExtResource("1_dw6jw")
@@ -24,10 +25,34 @@ animations = [{
 "speed": 1.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rscjw"]
+size = Vector2(10, 10)
+
 [node name="alge" type="Node2D"]
+script = ExtResource("1_iqjj5")
 
 [node name="texture" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_qsu6a")
 autoplay = "default"
 frame_progress = 0.76081
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_rscjw")
+
+[node name="FoodArea" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FoodArea"]
+shape = SubResource("RectangleShape2D_rscjw")
+
+[node name="SpawnFoodSpeed" type="Timer" parent="."]
+wait_time = 12.0
+autostart = true
+
+[connection signal="area_entered" from="FoodArea" to="." method="_on_food_area_area_entered"]
+[connection signal="area_exited" from="FoodArea" to="." method="_on_food_area_area_exited"]
+[connection signal="timeout" from="SpawnFoodSpeed" to="." method="_on_spawn_food_speed_timeout"]
