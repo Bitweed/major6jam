@@ -18,8 +18,9 @@ config/icon="res://icon.svg"
 [autoload]
 
 GameManager="*res://_scripts/global/game_manager.gd"
+Resources="*res://_scripts/global/Resources.gd"
 
 [display]
 
-window/stretch/mode="viewport"
-window/stretch/aspect="keep_height"
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"

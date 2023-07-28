@@ -30,6 +30,7 @@ size = Vector2(10, 10)
 
 [node name="alge" type="Node2D"]
 script = ExtResource("1_iqjj5")
+respawn_time = 6
 
 [node name="texture" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
@@ -49,10 +50,5 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FoodArea"]
 shape = SubResource("RectangleShape2D_rscjw")
 
-[node name="SpawnFoodSpeed" type="Timer" parent="."]
-wait_time = 12.0
-autostart = true
-
 [connection signal="area_entered" from="FoodArea" to="." method="_on_food_area_area_entered"]
 [connection signal="area_exited" from="FoodArea" to="." method="_on_food_area_area_exited"]
-[connection signal="timeout" from="SpawnFoodSpeed" to="." method="_on_spawn_food_speed_timeout"]

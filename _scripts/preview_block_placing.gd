@@ -45,7 +45,7 @@ func _unhandled_input(event):
 
 func _on_area_2d_area_entered(area):
 	can_build = false
-	size_sprite.modulate = "f70012"
+	size_sprite.modulate = "fc0000"
 	areas += 1
 
 func _on_area_2d_area_exited(area):

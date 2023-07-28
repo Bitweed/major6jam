@@ -1,15 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://b8iiitnqvw33m"]
+[gd_scene load_steps=5 format=3 uid="uid://b8iiitnqvw33m"]
 
 [ext_resource type="Script" path="res://_scripts/preview_block_placing.gd" id="1_u7mdb"]
 [ext_resource type="Texture2D" uid="uid://crvtnggtplfha" path="res://textures/isometric_template.png" id="2_hjdhk"]
 [ext_resource type="Texture2D" uid="uid://devyvdbaa3bwu" path="res://textures/coral_1.png" id="2_uy0f2"]
 [ext_resource type="Texture2D" uid="uid://c823ja30eep7" path="res://textures/UI/zone_2x2.png" id="4_wd7fk"]
-
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_dn1h0"]
-light_mode = 1
-
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_7w80f"]
-light_mode = 1
 
 [node name="Coral_1" type="Node2D"]
 script = ExtResource("1_u7mdb")
@@ -18,7 +12,6 @@ script = ExtResource("1_u7mdb")
 visible = false
 modulate = Color(0.337255, 0.862745, 0, 1)
 texture_filter = 1
-material = SubResource("CanvasItemMaterial_dn1h0")
 position = Vector2(0.25, 0)
 texture = ExtResource("2_hjdhk")
 
@@ -26,13 +19,11 @@ texture = ExtResource("2_hjdhk")
 visible = false
 modulate = Color(0.337255, 0.862745, 0, 1)
 texture_filter = 1
-material = SubResource("CanvasItemMaterial_dn1h0")
 position = Vector2(0, 12)
 texture = ExtResource("4_wd7fk")
 
 [node name="texture" type="Sprite2D" parent="."]
 texture_filter = 1
-material = SubResource("CanvasItemMaterial_7w80f")
 texture = ExtResource("2_uy0f2")
 
 [node name="SelfArea" type="Area2D" parent="."]

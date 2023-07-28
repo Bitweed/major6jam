@@ -29,7 +29,7 @@ func _on_button_pressed():
 		
 		# spawn preview block
 		var new_preview_block = preview_block.instantiate()
-		GameManager.main_scene.add_child(new_preview_block)
+		GameManager.main_scene.get_node("CanvasLayer").add_child(new_preview_block)
 		new_preview_block.position = Vector2(0, 0)
 		
 		# settings

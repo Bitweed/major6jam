@@ -1,54 +1,83 @@
-[gd_scene load_steps=7 format=3 uid="uid://4lid4laowl56"]
+[gd_scene load_steps=9 format=3 uid="uid://4lid4laowl56"]
 
 [ext_resource type="Script" path="res://_scripts/windows/coral_menu.gd" id="1_c7rra"]
 [ext_resource type="FontFile" uid="uid://dji467kgorm4p" path="res://REM-VariableFont_wght.ttf" id="1_chgdg"]
 [ext_resource type="Texture2D" uid="uid://c580wdgeoxkq3" path="res://textures/UI/popup.png" id="2_cqmof"]
 [ext_resource type="Texture2D" uid="uid://dvxf5j8fyfols" path="res://textures/UI/close.png" id="4_32hdr"]
-
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_mbd6m"]
-light_mode = 1
+[ext_resource type="Texture2D" uid="uid://dwt1mb51eouod" path="res://textures/UI/food_icon.png" id="5_i0mg1"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_c3ygj"]
 font = ExtResource("1_chgdg")
 font_size = 50
 font_color = Color(0, 0, 0, 1)
 
-[node name="CoralMenu" type="Node2D"]
-top_level = true
+[sub_resource type="LabelSettings" id="LabelSettings_gacci"]
+font = ExtResource("1_chgdg")
+font_size = 28
+font_color = Color(0.294118, 0.294118, 0.294118, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_vsiy7"]
+font = ExtResource("1_chgdg")
+font_size = 50
+font_color = Color(0, 0, 0, 1)
+shadow_size = 0
+
+[node name="CoralMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
 script = ExtResource("1_c7rra")
 
 [node name="BG" type="Sprite2D" parent="."]
-material = SubResource("CanvasItemMaterial_mbd6m")
-position = Vector2(0, -32)
-scale = Vector2(0.233333, 0.233333)
+scale = Vector2(0.7, 0.532292)
 texture = ExtResource("2_cqmof")
 
-[node name="FoodCount" type="Label" parent="."]
-offset_left = -50.0
-offset_top = -43.0
-offset_right = -15.0
-offset_bottom = 23.0
+[node name="FoodSec" type="Label" parent="."]
+offset_left = -125.0
+offset_top = -62.0
+offset_right = 149.0
+offset_bottom = 36.0
 scale = Vector2(0.5, 0.5)
-text = "0"
+theme_override_font_sizes/font_size = 291
+text = "Food/sec:  0"
 label_settings = SubResource("LabelSettings_c3ygj")
+vertical_alignment = 1
 
-[node name="FishCount" type="Label" parent="."]
-offset_left = -50.0
-offset_top = -75.0
-offset_right = -15.0
-offset_bottom = -9.0
+[node name="FoodIcon" type="Sprite2D" parent="FoodSec"]
+modulate = Color(0.309804, 0.690196, 0.831373, 1)
+texture_filter = 1
+position = Vector2(-32, 48)
+scale = Vector2(2.34375, 2.34375)
+texture = ExtResource("5_i0mg1")
+
+[node name="FoodSources" type="Label" parent="."]
+offset_left = -148.0
+offset_top = -33.0
+offset_right = 174.0
+offset_bottom = 33.0
 scale = Vector2(0.5, 0.5)
-text = "0"
-label_settings = SubResource("LabelSettings_c3ygj")
+theme_override_font_sizes/font_size = 291
+text = "Food sources: 0/6"
+label_settings = SubResource("LabelSettings_gacci")
+vertical_alignment = 1
 
 [node name="CloseButton" type="TextureButton" parent="."]
-material = SubResource("CanvasItemMaterial_mbd6m")
-offset_left = 23.0
-offset_top = -82.0
-offset_right = 514.0
-offset_bottom = 391.0
-scale = Vector2(0.055, 0.055)
+offset_left = 117.0
+offset_top = -90.0
+offset_right = 608.0
+offset_bottom = 383.0
+scale = Vector2(0.075, 0.075)
 texture_normal = ExtResource("4_32hdr")
 ignore_texture_size = true
+
+[node name="Name" type="Label" parent="."]
+offset_left = -149.0
+offset_top = -88.0
+offset_right = 138.0
+offset_bottom = -22.0
+scale = Vector2(0.5, 0.5)
+theme_override_font_sizes/font_size = 291
+text = "Name"
+label_settings = SubResource("LabelSettings_vsiy7")
+vertical_alignment = 1
 
 [connection signal="pressed" from="CloseButton" to="." method="_on_texture_button_pressed"]

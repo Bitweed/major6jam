@@ -1,21 +1,22 @@
-extends Node2D
+extends Control
 
 
-var food_count = 0
-var fish_count = 0
+var ovner: Node2D
 
 
 func _process(delta):
-	var food_count = get_parent().food_count
-	var fish_count = get_parent().food_sources
-	
-	$FoodCount.text = str(food_count)
-	$FishCount.text = str(fish_count)
+	$Name.text = ovner.block_name
+	$FoodSec.text = "Food/sec: " + str(snapped(ovner.food_ps, 0.01))
+	$FoodSources.text = "Food sources: " + str(ovner.food_sources) + "/" + str(ovner.fs_limit)
 	
 	if GameManager.build_mode:
-		get_parent().menu_opened = false
-		queue_free()
+		_closing()
+
+
+func _closing():
+	GameManager.block_menu = false
+	queue_free()
+
 
 func _on_texture_button_pressed():
-	get_parent().menu_opened = false
-	queue_free()
+	_closing()
