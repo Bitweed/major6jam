@@ -2,9 +2,10 @@ extends Node2D
 
 
 var shop_window = preload("res://prefabs/shop_window.tscn")
+@onready var main_tilemap = $TileMap
 
 func _ready():
-	GameManager.tilemap = $TileMap
+	GameManager.tilemap = main_tilemap
 	GameManager.main_camera = $Camera
 	GameManager.main_scene = get_node('.')
 
@@ -14,7 +15,3 @@ func _ready():
 	draw_window.visible = true
 	
 	DisplayServer.window_set_size(Vector2i(1280, 720))
-
-
-func _process(delta):
-	print(Resources.food)

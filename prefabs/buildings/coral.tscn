@@ -1,16 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://fi1i5geuauy1"]
+[gd_scene load_steps=2 format=3 uid="uid://fi1i5geuauy1"]
 
 [ext_resource type="Texture2D" uid="uid://devyvdbaa3bwu" path="res://textures/coral_1.png" id="1_8mxeg"]
-[ext_resource type="Script" path="res://_scripts/buildings/coral.gd" id="1_t8npb"]
 
 [node name="Cabbage Coral" type="Node2D"]
-script = ExtResource("1_t8npb")
-fs_limit = 6
-block_name = "Cabbage Coral"
-
-[node name="texture" type="Sprite2D" parent="."]
-texture_filter = 1
-texture = ExtResource("1_8mxeg")
 
 [node name="Area2D" type="Area2D" parent="."]
 
@@ -18,6 +10,7 @@ texture = ExtResource("1_8mxeg")
 polygon = PackedVector2Array(-37, 12, 0, -8, 37, 12, 0, 32)
 
 [node name="FoodDetector" type="Area2D" parent="."]
+visible = false
 collision_layer = 2
 collision_mask = 2
 
@@ -27,6 +20,7 @@ scale = Vector2(2.76182, 3.34375)
 polygon = PackedVector2Array(-31.5009, 11.6636, -1.08624, -1.19626, 28.9664, 11.9626, -1.44832, 24.8224)
 
 [node name="OpenMenuButton" type="TextureButton" parent="."]
+visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -39,8 +33,6 @@ offset_bottom = 18.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="FoodTimer" type="Timer" parent="."]
-autostart = true
-
-[connection signal="pressed" from="OpenMenuButton" to="." method="_on_open_menu_button_pressed"]
-[connection signal="timeout" from="FoodTimer" to="." method="_on_food_timer_timeout"]
+[node name="texture" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_8mxeg")

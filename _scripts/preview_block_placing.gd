@@ -2,6 +2,7 @@ extends Node2D
 
 var tile_num: int
 var size = 2
+var price
 
 var x: int
 var y: int
@@ -10,7 +11,9 @@ var size_sprite
 var can_build = true
 var areas: int
 
-		
+var mbl_pressed = false
+
+
 func _process(delta):
 	
 	if size == 2:
@@ -33,11 +36,26 @@ func _process(delta):
 	y = mouse_tile.y
 	
 	
-func _unhandled_input(event):
-	if can_build and event is InputEventMouseButton && event.pressed && event.button_index == MOUSE_BUTTON_LEFT:
-		# placing tile
-		GameManager.main_scene.get_node("TileMap").set_cell(0, Vector2i(x, y), 0, Vector2i(0, 0), tile_num)
+	if GameManager.coins - price < 0:
+		mbl_pressed = false
+		GameManager.is_bought = false
+		GameManager.build_mode = false
+		queue_free()
+		return
+	
+	if can_build and mbl_pressed and $BuildTimeout.is_stopped():
+		GameManager.tilemap.set_cell(0, Vector2i(x, y), 0, Vector2i(0, 0), tile_num)
+		# обновление счёта
+		GameManager.update_coins(price)
+		$BuildTimeout.start()
 		
+		
+func _input(event):
+	if event.is_action_pressed("MBL"):
+		mbl_pressed = true
+	elif event.is_action_released("MBL"):
+		mbl_pressed = false
+		# GameManager.tilemap.set_cell(0, Vector2i(x, y), 0, Vector2i(0, 0), tile_num)
 		GameManager.is_bought = false
 		GameManager.build_mode = false
 		queue_free()

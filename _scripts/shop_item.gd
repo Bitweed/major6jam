@@ -21,20 +21,18 @@ func _ready():
 func _on_button_pressed():
 	var shop = get_parent()
 	
-	if shop.coins >= cost && GameManager.is_bought == false:
+	if GameManager.coins >= cost && GameManager.is_bought == false:
 		GameManager.is_bought = true
-		
-		# updating coins
-		shop.update_coins(shop.coins - cost)
 		
 		# spawn preview block
 		var new_preview_block = preview_block.instantiate()
-		GameManager.main_scene.get_node("CanvasLayer").add_child(new_preview_block)
+		GameManager.main_scene.add_child(new_preview_block)
 		new_preview_block.position = Vector2(0, 0)
 		
 		# settings
 		new_preview_block.get_node("texture").texture = preview_block_texture
 		new_preview_block.tile_num = tile_num
 		new_preview_block.size = tile_size
+		new_preview_block.price = cost
 		
 		GameManager.build_mode = true

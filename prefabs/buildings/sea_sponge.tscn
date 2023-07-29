@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://03kkeukhs2nw"]
+
+[ext_resource type="Texture2D" uid="uid://ct1653mpntceo" path="res://textures/sea_sponge.png" id="1_g6get"]
+[ext_resource type="Texture2D" uid="uid://byrvvs2th4xnb" path="res://textures/light_mask.png" id="2_5kyde"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2v8yw"]
+size = Vector2(10, 10)
+
+[node name="SeaSponge" type="Node2D"]
+
+[node name="texture" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_g6get")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_2v8yw")
+
+[node name="light" type="PointLight2D" parent="."]
+blend_mode = 2
+texture = ExtResource("2_5kyde")
+texture_scale = 2.0

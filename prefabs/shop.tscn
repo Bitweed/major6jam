@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://dvi6bw1qagk5p"]
+[gd_scene load_steps=8 format=3 uid="uid://dvi6bw1qagk5p"]
 
 [ext_resource type="Script" path="res://_scripts/shop.gd" id="1_t6vdd"]
 [ext_resource type="PackedScene" uid="uid://by8ummqdq3dpn" path="res://prefabs/shop_item.tscn" id="2_ldjfy"]
 [ext_resource type="Texture2D" uid="uid://wliry6fica54" path="res://textures/preview/alge_preview.png" id="4_3a1di"]
 [ext_resource type="Texture2D" uid="uid://bd6cn1umima1l" path="res://textures/preview/geyser_preview.png" id="5_ekmvg"]
 [ext_resource type="FontFile" uid="uid://dji467kgorm4p" path="res://REM-VariableFont_wght.ttf" id="5_nhqhi"]
+[ext_resource type="Texture2D" uid="uid://ct1653mpntceo" path="res://textures/sea_sponge.png" id="6_l35vl"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_dxved"]
 font = ExtResource("5_nhqhi")
@@ -51,6 +52,7 @@ offset_bottom = 160.0
 size_flags_vertical = 1
 tile_num = 1
 cost = 300
+item_name = "Smooth Stones"
 tile_size = 2
 
 [node name="Item - Alge" parent="." instance=ExtResource("2_ldjfy")]
@@ -80,16 +82,16 @@ cost = 1000
 item_name = "Geyser"
 tile_size = 2
 
-[node name="Item - Geyser2" parent="." instance=ExtResource("2_ldjfy")]
+[node name="Item - SeaSponge" parent="." instance=ExtResource("2_ldjfy")]
 layout_mode = 0
 offset_left = 104.0
 offset_top = 392.0
 offset_right = 104.0
 offset_bottom = 392.0
 size_flags_vertical = 1
-preview_block_texture = ExtResource("5_ekmvg")
+preview_block_texture = ExtResource("6_l35vl")
 y_margin = -50
-tile_num = 3
-cost = 1000
-item_name = "Geyser"
-tile_size = 2
+tile_num = 4
+cost = 400
+item_name = "Sea Sponge"
+tile_size = 4
